@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>联系我们 - 京徽龙江-致欣科技</title>
   <meta name="description" content="联系京徽龙江-致欣科技，获取专业的技术解决方案和咨询服务。">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/src/css/style.css">
 </head>
@@ -241,7 +243,7 @@
       </h2>
       <div class="rounded-lg overflow-hidden shadow-lg h-96">
         <!-- 高德地图嵌入 -->
-        <iframe src="https://www.amap.com/place/B000A75BQU" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        <iframe src="https://www.amap.com/place/B000A75BQU" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -340,11 +342,16 @@
 
   <!-- JavaScript -->
   <script>
-    // 移动端菜单切换
-    document.getElementById('menu-toggle').addEventListener('click', function() {
+    // 移动端菜单切换（存在元素时才绑定）
+    (function () {
+      const menuToggle = document.getElementById('menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
-      mobileMenu.classList.toggle('hidden');
-    });
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    })();
     
     // 动态调整页面内容上边距，确保不被导航栏覆盖
     function adjustContentPadding() {
@@ -395,14 +402,16 @@
         });
       });
       
-      // 常见问题折叠面板
+      // 常见问题折叠面板（存在对应结构时才绑定）
       document.querySelectorAll('.border.border-gray-200').forEach(item => {
         const button = item.querySelector('button');
         const content = item.querySelector('.bg-white');
+        if (!button || !content) return;
         
         button.addEventListener('click', function() {
           content.classList.toggle('hidden');
           const icon = this.querySelector('i');
+          if (!icon) return;
           if (icon.classList.contains('fa-chevron-down')) {
             icon.classList.remove('fa-chevron-down');
             icon.classList.add('fa-chevron-up');
@@ -430,7 +439,7 @@
             <span class="lang en hidden">Contact Us</span>
           </h3>
           <div class="mb-4">
-            <img src="/src/images/wechat-qr.png" alt="微信二维码" class="w-40 h-40 mx-auto object-contain border border-gray-200 rounded">
+            <img src="/src/images/wechat-qr.png" alt="微信二维码" class="w-40 h-40 mx-auto object-contain border border-gray-200 rounded" loading="lazy" decoding="async">
           </div>
           <p class="text-sm text-gray-600 mb-2">
             <span class="lang zh">扫描二维码</span>

@@ -117,15 +117,8 @@ window.onload = function() {
         }
     };
     
-    // 导航栏移动端菜单切换功能
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (menuToggle && navLinks) {
-        menuToggle.onclick = function() {
-            navLinks.classList.toggle('active'); // 切换导航栏链接的显示/隐藏
-        };
-    }
+    // 导航栏在移动设备上始终显示，无需菜单切换功能
+    // 已通过CSS媒体查询实现响应式布局
 };
 
 /**

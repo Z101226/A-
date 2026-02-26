@@ -39,14 +39,18 @@ main {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px 20px;
+    flex-wrap: wrap;
 }
 
 .logo {
+    flex: 100%;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .logo-img {
@@ -64,6 +68,8 @@ main {
 .nav-links {
     display: flex;
     list-style: none;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .nav-links li {
@@ -1225,24 +1231,49 @@ footer {
         display: none;
     }
 
+    .navbar {
+        position: relative;
+        top: 0;
+    }
+
+    .navbar .container {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        margin-bottom: 5px;
+        justify-content: flex-start;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
     .nav-links {
         position: static;
         display: flex;
         flex-direction: row;
-        width: auto;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: 100%;
         background-color: transparent;
         padding: 0;
         box-shadow: none;
     }
 
     .nav-links li {
-        margin-left: 5px;
-        margin: 0 5px;
+        margin: 2px 5px;
     }
 
     .nav-link {
         padding: 5px 10px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .hero h2 {
@@ -1275,34 +1306,37 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .navbar .container {
+        padding: 8px 10px;
+    }
+    
     .logo {
-        flex-direction: row;
-        align-items: center;
+        margin-bottom: 3px;
+        justify-content: flex-start;
     }
     
     .logo-img {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-        margin-bottom: 0;
+        width: 35px;
+        height: 35px;
+        margin-right: 8px;
     }
     
     .logo h1 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .nav-links {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-end;
     }
 
     .nav-links li {
-        margin: 2px;
+        margin: 1px 3px;
     }
 
     .nav-link {
-        padding: 3px 8px;
-        font-size: 0.8rem;
+        padding: 3px 6px;
+        font-size: 0.7rem;
     }
 
     .hero h2 {

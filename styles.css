@@ -1222,28 +1222,27 @@ footer {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: none;
     }
 
     .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        display: none;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
+        position: static;
         display: flex;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
     }
 
     .nav-links li {
-        margin: 10px 0;
+        margin-left: 5px;
+        margin: 0 5px;
+    }
+
+    .nav-link {
+        padding: 5px 10px;
+        font-size: 0.9rem;
     }
 
     .hero h2 {
@@ -1262,48 +1261,48 @@ footer {
         font-size: 2rem !important;
     }
 
-    .story-content {
-        flex-direction: column;
-    }
-
-    .story-image {
-        flex: 0 0 100%;
-        max-width: 100%;
-        height: 300px;
-    }
-
-    .story-text {
-        padding: 30px;
-    }
-
     .mission-vision {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .team-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .news-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
 }
 
 @media (max-width: 480px) {
     .logo {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
     }
     
     .logo-img {
         width: 40px;
         height: 40px;
-        margin-right: 0;
-        margin-bottom: 5px;
+        margin-right: 10px;
+        margin-bottom: 0;
     }
     
     .logo h1 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 2px;
+    }
+
+    .nav-link {
+        padding: 3px 8px;
+        font-size: 0.8rem;
     }
 
     .hero h2 {
@@ -1323,12 +1322,13 @@ footer {
     }
 
     .company-contact .container {
-        flex-direction: column;
+        display: flex;
+        gap: 40px;
     }
 
     .contact-info-left {
         margin-right: 0;
-        margin-bottom: 30px;
+        margin-bottom: 0;
     }
 
     .team-member {
